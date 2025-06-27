@@ -3,7 +3,7 @@ version: '3.9'
 services:
   postgres:
     image: postgres:14
-    container_name: postgres20
+    container_name: postgres30
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin234
@@ -12,13 +12,12 @@ services:
       - "5121:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: always
 
   backend:
     build:
       context: ./Backend
-    container_name: backend24
+    container_name: backend31
     environment:
       POSTGRES_HOST: postgres
       POSTGRES_USER: postgres
@@ -33,7 +32,7 @@ services:
   employee_formfilling:
     build:
       context: ./Employee_Formfilling
-    container_name: employee_formfilling25
+    container_name: employee_formfilling32
     ports:
       - "6511:80"
     depends_on:
@@ -43,7 +42,7 @@ services:
   hr_formfilling:
     build:
       context: ./HR_FormFilling
-    container_name: hr_formfilling26
+    container_name: hr_formfilling33
     ports:
       - "6512:80"
     depends_on:
@@ -53,7 +52,7 @@ services:
   welcome_page:
     build:
       context: ./Welcome-Page
-    container_name: welcome_page27
+    container_name: welcome_page34
     ports:
       - "6513:80"
     depends_on:
